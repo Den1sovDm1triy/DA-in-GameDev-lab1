@@ -1,25 +1,16 @@
 # АНАЛИЗ ДАННЫХ И ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ [in GameDev]
-Отчет по лабораторной работе #1 выполнил(а):
-- Иванова Ивана Варкравтовна
-- РИ000024
+Отчет по лабораторной работе #1 выполнил:
+- Иргашев Тимофей Александрович
+- РИ210944
 Отметка о выполнении заданий (заполняется студентом):
 
 | Задание | Выполнение | Баллы |
 | ------ | ------ | ------ |
-| Задание 1 | # | 60 |
-| Задание 2 | # | 20 |
-| Задание 3 | # | 20 |
+| Задание 1 | * | 60 |
+| Задание 2 | * | 20 |
+| Задание 3 | * | 20 |
 
 знак "*" - задание выполнено; знак "#" - задание не выполнено;
-
-Работу проверили:
-- к.т.н., доцент Денисов Д.В.
-- к.э.н., доцент Панов М.А.
-- ст. преп., Фадеев В.О.
-
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Структура отчета
 
@@ -32,108 +23,31 @@
 - Задание 3.
 - Код реализации выполнения задания. Визуализация результатов выполнения (если применимо).
 - Выводы.
-- ✨Magic ✨
 
 ## Цель работы
 Ознакомиться с основными операторами зыка Python на примере реализации линейной регрессии.
 
 ## Задание 1
-### Пошагово выполнить каждый пункт раздела "ход работы" с описанием и примерами реализации задач
-Ход работы:
-- Произвести подготовку данных для работы с алгоритмом линейной регрессии. 10 видов данных были установлены случайным образом, и данные находились в линейной зависимости. Данные преобразуются в формат массива, чтобы их можно было вычислить напрямую при использовании умножения и сложения.
+### Совместная работа и передача данных в связке Python - Google-Sheets – Unity.
 
-```py
-
-In [ ]:
-#Import the required modules, numpy for calculation, and Matplotlib for drawing
-import numpy as np
-import matplotlib.pyplot as plt
-#This code is for jupyter Notebook only
-%matplotlib inline
-
-# define data, and change list to array
-x = [3,21,22,34,54,34,55,67,89,99]
-x = np.array(x)
-y = [2,22,24,65,79,82,55,130,150,199]
-y = np.array(y)
-
-#Show the effect of a scatter plot
-plt.scatter(x,y)
-
-```
-
-- Определите связанные функции. Функция модели: определяет модель линейной регрессии wx+b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
-
+Удалось связать python unity и google-sheets, все работает корректно
+![python-google sheets](https://user-images.githubusercontent.com/103359810/195163628-8c40d5dd-f88a-4eec-b7cf-e1aa721156e4.png)
+![Снимок экрана (79)](https://user-images.githubusercontent.com/103359810/195163712-940df21c-2911-4020-9cd4-4d08ac7f3b05.png)
+![Снимок экрана (77)](https://user-images.githubusercontent.com/103359810/195163738-f55b322f-2c6d-4cd0-9bdc-c3d0d410a2bd.png)
+![Снимок экрана (80)](https://user-images.githubusercontent.com/103359810/195163770-d90092c6-8e55-462a-8c76-0750122fcb84.png)
 
 ## Задание 2
-### Должна ли величина loss стремиться к нулю при изменении исходных данных? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ.
+### Реализовать запись в Google-таблицу набора данных, полученных с помощью линейной регрессии из лабораторной работы № 1. 
 
-- Перечисленные в этом туториале действия могут быть выполнены запуском на исполнение скрипт-файла, доступного [в репозитории](https://github.com/Den1sovDm1triy/hfss-scripting/blob/main/ScreatingSphereInAEDT.py).
-- Для запуска скрипт-файла откройте Ansys Electronics Desktop. Перейдите во вкладку [Automation] - [Run Script] - [Выберите файл с именем ScreatingSphereInAEDT.py из репозитория].
+Переписал код из первого задания, связь между python и google-sheets не пропал
+![Снимок экрана (83)](https://user-images.githubusercontent.com/103359810/195173101-deb763ca-e3ae-4e79-9326-196b987ae41d.png)
+![Снимок экрана (84)](https://user-images.githubusercontent.com/103359810/195173108-f63a7963-9243-4d5c-bc3f-b08f1645d2cc.png)
 
-```py
-
-import ScriptEnv
-ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
-oDesktop.RestoreWindow()
-oProject = oDesktop.NewProject()
-oProject.Rename("C:/Users/denisov.dv/Documents/Ansoft/SphereDIffraction.aedt", True)
-oProject.InsertDesign("HFSS", "HFSSDesign1", "HFSS Terminal Network", "")
-oDesign = oProject.SetActiveDesign("HFSSDesign1")
-oEditor = oDesign.SetActiveEditor("3D Modeler")
-oEditor.CreateSphere(
-	[
-		"NAME:SphereParameters",
-		"XCenter:="		, "0mm",
-		"YCenter:="		, "0mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "1.0770329614269mm"
-	], 
-)
-
-```
 
 ## Задание 3
-### Какова роль параметра Lr? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ. В качестве эксперимента можете изменить значение параметра.
-
-- Перечисленные в этом туториале действия могут быть выполнены запуском на исполнение скрипт-файла, доступного [в репозитории](https://github.com/Den1sovDm1triy/hfss-scripting/blob/main/ScreatingSphereInAEDT.py).
-- Для запуска скрипт-файла откройте Ansys Electronics Desktop. Перейдите во вкладку [Automation] - [Run Script] - [Выберите файл с именем ScreatingSphereInAEDT.py из репозитория].
-
-```py
-
-import ScriptEnv
-ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
-oDesktop.RestoreWindow()
-oProject = oDesktop.NewProject()
-oProject.Rename("C:/Users/denisov.dv/Documents/Ansoft/SphereDIffraction.aedt", True)
-oProject.InsertDesign("HFSS", "HFSSDesign1", "HFSS Terminal Network", "")
-oDesign = oProject.SetActiveDesign("HFSSDesign1")
-oEditor = oDesign.SetActiveEditor("3D Modeler")
-oEditor.CreateSphere(
-	[
-		"NAME:SphereParameters",
-		"XCenter:="		, "0mm",
-		"YCenter:="		, "0mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "1.0770329614269mm"
-	], 
-)
-
-```
-
-## Выводы
-
-Абзац умных слов о том, что было сделано и что было узнано.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-## Powered by
-
-**BigDigital Team: Denisov | Fadeev | Panov**
+### Самостоятельно разработать сценарий воспроизведения звукового сопровождения в Unity в зависимости от изменения считанных данных в задании 2. 
+Будем брать значения из переменной loss, так как она характеризует функцию потерь.
+Будем воспроизводить "хорошую" реплику, если loss меньше 1000,
+"Нормальную", если loss от 1000 до 2000
+"Плохую", если loss от больше 2000
+![100](https://user-images.githubusercontent.com/103359810/195175871-96a14b82-19ae-4cfe-b1c0-51b5925e6695.PNG)
